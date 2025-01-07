@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        .tab {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px 0;
+        }
+
+        .tab button {
+            background-color: #ddd;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+
+        .tab button:hover {
+            background-color: #ccc;
+        }
+
+        .tab button.active {
+            background-color: #333;
+            color: white;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border-top: 2px solid #ccc;
+        }
+
+        .content {
+            margin: 20px 0;
+        }
+
+        .lab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .lab-buttons button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .lab-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .lab-content {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
+        <button class="tablinks" onclick="openTab(event, 'About')">About</button>
+        <button class="tablinks" onclick="openTab(event, 'Lab')">Lab</button>
+    </div>
+
+    <div id="Home" class="tabcontent">
+        <div class="content">
+            <h1>Welcome to My Website</h1>
+            <p>My name is Nguyen Thành An</p>
+        </div>
+    </div>
+
+    <div id="About" class="tabcontent">
+      <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>My name is Nguyen Thanh An </p>
+      </div>
+      <footer>
+        &copy; © 2024 Stylish Web. All rights reserved.
+      </footer>
+    
+        
+    
+    
+          <h1>Curriculum Vitae</h1>
+            <p><strong>Nguyễn Thành An</strong></p>
+            <div class="contact-info section">
+                <p>Email: <a href="mailto:23130323@st.hcmuaf.edu.vn">23130001@st.hcmuaf.edu.vn</a></p>
+                <p>Phone: 0385836217</p>
+                <p>Address: 123 road , City XYZ</p>
+            </div>
+    
+            <div class="section">
+                <h2>Introduce</h2>
+                <p>Hello! My name is An, and I’m currently a student majoring in Information Technology. I’m passionate about technology and excited about the opportunities it offers to solve real-world problems. My studies cover various aspects of IT, such as programming, database management, cybersecurity, and network systems, which help me build a solid foundation in the field.
+    
+                  I enjoy coding, and I’m particularly interested in software development and data science. I’ve learned programming languages like Python, Java, and C++, and I’m always eager to expand my skills by learning new technologies and tools. I also like working on projects, as they allow me to apply what I’ve learned in practical scenarios.
+                  
+                  In addition to my technical skills, I value teamwork and am committed to continuous self-improvement. I look forward to further developing my expertise in IT and contributing to innovative projects in the future. Thank you for taking the time to get to know me!</p>
+            </div>
+    
+            <div class="section">
+                <h2>Work Experience</h2>
+                <h3>XYZ Company</h3>
+                <p><strong>Position:</strong> Programmer</p>
+                <p><strong>Period:</strong> 2020 - present</p>
+                <ul>
+                    <li>Develop and maintain web applications.</li>
+                    <li>Collaborate with design teams to improve user experience.</li>
+                </ul>
+                
+                <h3>ABC Company</h3>
+                <p><strong>Position:</strong> Intern</p>
+                <p><strong>Period:</strong> 2019 - 2020</p>
+                <ul>
+                    <li>Support the development of small projects.</li>
+                    <li>Participate in team meetings to discuss work progress.</li>
+                </ul>
+            </div>
+    
+            <div class="section">
+                <h2>Education</h2>
+                <p><strong>University Nong Lam</strong> - Major: Computer Science</p>
+                <p><strong>Graduation Year:</strong> 2019</p>
+            </div>
+    
+            <div class="section">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <p>HTML, CSS, JavaScript</p>
+                    <p>React, Node.js</p>
+                    <p>SQL database management</p>
+                    <p>Communication and teamwork</p>
+                </div>
+            </div>
+    
+            <p><em>Update date: 28/09/2024</em></p>
+    
+            <div class="section">
+                <h2>Download CV</h2>
+                <p><a href="link_to_your_cv_file.pdf" download>File CV</a></p>
+            </div>
+    </div>
+
+    <div id="Lab" class="tabcontent">
+      <h1>Lab</h1>
+      <p>Select a lab:</p>
+      <div class="lab-buttons">
+          <a href="lab1.html" target="_blank">Lab 1</a>
+          <a href="lab2.html" target="_blank">Lab 2</a>
+          <a href="lab3.html" target="_blank">Lab 3</a>
+          <a href="lab4.html" target="_blank">Lab 4</a>
+          <a href="lab5.html" target="_blank">Lab 5</a>
+          <a href="lab6.html" target="_blank">Lab 6</a>
+      </div>
+  </div>
+
+
+    <footer>
+        &copy; Nguyễn Thành An
+    </footer>
+
+    <script>
+      function openTab(evt, tabName) {
+          // Hide all tab content
+          const tabcontent = document.querySelectorAll(".tabcontent");
+          tabcontent.forEach((content) => content.style.display = "none");
+
+          // Remove "active" class from all tab links
+          const tablinks = document.querySelectorAll(".tablinks");
+          tablinks.forEach((link) => link.classList.remove("active"));
+
+          // Show the selected tab content and add "active" class to the clicked tab
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.classList.add("active");
+      }
+
+      // Open the default tab on page load
+      document.getElementById("defaultOpen").click();
+  </script>
+</body>
+
+</html>
