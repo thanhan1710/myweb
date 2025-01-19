@@ -200,6 +200,7 @@
         <p>Add your occupation and interests</p>
     </header>
     <div id="tab1" class="tabcontent">
+        
         <table>
             
             <tr>
@@ -284,24 +285,62 @@
         
     
         <div class="tabs">
-            <button class="active">Courses</button>
-            <button>Learning Paths</button>
-            <button>Certification Preparation</button>
+            <button class="active" onclick="openTab(event, 'coursesTab')">Courses</button>
+            <button onclick="openTab(event, 'learningPaths')">Learning Paths</button>
+            <button onclick="openTab(event, 'certificationPrep')">Certification Preparation</button>
         </div>
-        <div id="active" class="tabcontent">
-            <h3>Active Content</h3>
-            <p>Content for Active Tab goes here.</p>
+        
+        <div id="coursesTab" class="tabcontent" style="display: block;">
+            <h3>Courses</h3>
+            <p>Explore recommended certification courses below:</p>
+            
+            <!-- Course 1 -->
+            <div class="course">
+                <iframe width="320" height="180" 
+                        src="https://www.youtube.com/embed/sBws8MSXN7A" 
+                        title="Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h2>Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808</h2>
+                <p>Rating: 4.6 stars | Number of Reviews: 100</p>
+            </div>
+            
+            <!-- Course 2 -->
+            <div class="course">
+                <iframe width="320" height="180" 
+                        src="https://www.youtube.com/watch?v=lwsS-ikKnPs&t=6s" 
+                        title="Oracle Java Certification - Pass the Associate 1Z0-808 Exam"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h2>Oracle Java Certification - Pass the Associate 1Z0-808 Exam</h2>
+                <p>Rating: 4.6 stars | Number of Reviews: 120</p>
+            </div>
+            
+            <!-- Course 3 -->
+            <div class="course">
+                <iframe width="320" height="180" 
+                        src="https://www.youtube.com/embed/3JluqTojuME" 
+                        title="Complete Java SE 8 Developer Bootcamp - OCA Prep Included"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <h2>Complete Java SE 8 Developer Bootcamp - OCA Prep Included</h2>
+                <p>Rating: 4.6 stars | Number of Reviews: 90</p>
+            </div>
         </div>
-        <div class="pick-up">
-            <h2>Pick up where you left off</h2>
-         
-            
-    
-            
-            <img src="d:\My Documents\Downloads\—Pngtree—cartoon fire flame flat icon_8522617.png"alt= >
-            
-            
+        
+        <div id="learningPaths" class="tabcontent">
+            <h3>Learning Paths</h3>
+            <p>Content for Learning Paths tab.</p>
         </div>
+        
+        <div id="certificationPrep" class="tabcontent">
+            <h3>Certification Preparation</h3>
+            <p>Content for Certification Preparation tab.</p>
+        </div>
+        
     </main>
     
     <footer>
@@ -309,22 +348,21 @@
     </footer>
     
     <script>
-        // JavaScript for tabs
-        document.getElementById("defaultOpen").click();
-    
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tablinks");
+            tablinks = document.getElementsByTagName("button");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+    </script>
+</script>
     </script>
     </div>
     <div class="half right">
@@ -340,22 +378,22 @@
     <div class="container">
         <h1>Certification Courses Recommendations</h1>
         <div class="course">
-            <img src="https://th.bing.com/th/id/OIP.pnrhoUMFQ2EiU_8GE00dEgHaEK?rs=1&pid=ImgDetMain" alt="Person">
+            <img src="https://th.bing.com/th/id/OIP.pnrhoUMFQ2EiU_8GE00dEgHaEK?rs=1&pid=ImgDetMain" alt="Person"style="height: 40px;">
             <h2>Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808</h2>
             <p>Rating: 4.6 stars | Number of Reviews: 100</p>
         </div>
         <div class="course">
-            <img src="https://th.bing.com/th/id/R.135787ce9bdc5e0dc3e6526fdeac9267?rik=G%2fYiVfS%2bQe4Xlw&pid=ImgRaw&r=0" alt="Computer">
+            <img src="https://th.bing.com/th/id/R.135787ce9bdc5e0dc3e6526fdeac9267?rik=G%2fYiVfS%2bQe4Xlw&pid=ImgRaw&r=0" alt="Computer"style="height: 40px;">
             <h2>Oracle Java Certification - Pass the Associate 1Z0-808 Exam</h2>
             <p>Rating: 4.6 stars | Number of Reviews: 120</p>
         </div>
         <div class="course">
-            <img src="https://th.bing.com/th/id/OIP.iGwFbpEINz776lOd3HYoXgHaEK?rs=1&pid=ImgDetMain" alt="Book">
+            <img src="https://th.bing.com/th/id/OIP.iGwFbpEINz776lOd3HYoXgHaEK?rs=1&pid=ImgDetMain" alt="Book"style="height: 40px;">
             <h2>Complete Java SE 8 Developer Bootcamp - OCA Prep Included</h2>
             <p>Rating: 4.6 stars | Number of Reviews: 90</p>
         </div>
         <div class="course">
-            <img src="https://th.bing.com/th/id/R.8e57443699060fcc09d53658dd842106?rik=29Ww54PaYrfT2A&pid=ImgRaw&r=0" alt="Tablet">
+            <img src="https://th.bing.com/th/id/R.8e57443699060fcc09d53658dd842106?rik=29Ww54PaYrfT2A&pid=ImgRaw&r=0" alt="Tablet"style="height: 40px;">
             <h2>Spring Professional Certification Exam Tutorial - Module 02</h2>
             <p>Rating: 4.6 stars | Number of Reviews: 80</p>
         </div>
