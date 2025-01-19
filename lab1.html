@@ -1,74 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register an Account</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
 
-        .container {
-            background: #fff;
-            width: 400px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    .tabs {
+      display: flex;
+      width: 60%;
+      border: 1px solid #ccc;
+    }
 
-        .container h1 {
-            font-size: 24px;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    .tab.requirement {
+      background-color: #28a745;
+      color: white;
+    }
 
-        label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #333;
-        }
+    .tab.design,
+    .tab.implement {
+      background-color: #333;
+      color: white;
+    }
 
-        input, select, button {
-            font-size: 16px;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 100%;
-        }
+    .tab:hover {
+      opacity: 0.8;
+    }
 
-        button {
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+    .content {
+      display: none;
+      width: 80%;
+      margin-top: 20px;
+      text-align: center;
+    }
 
-        button:hover {
-            background-color: #555;
-        }
+    .content.active {
+      display: block;
+    }
 
-        input[type="file"] {
-            padding: 3px;
-        }
-    </style>
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 2px solid #ccc; /* Đóng khung login */
+      border-radius: 10px;   /* Bo tròn góc */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+      padding: 20px;
+    }
+
+    #form-container h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    form input,
+    form select,
+    form button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      color: white;
+      background-color: #28a745;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <div>
+    <div class="tabs">
+      <div class="tab requirement" onclick="showContent('requirement')">REQUIREMENT</div>
+      <div class="tab design" onclick="showContent('design')">DESIGN</div>
+      <div class="tab implement" onclick="showContent('implement')">IMPLEMENT</div>
+    </div>
+    <div class="content requirement-content active" id="requirement-content">
+      
+      <h2>Requirement</h2>
+  <ul>
+    <li>
+      <strong>User Interface Design Requirements:</strong>
+      <ul>
+        <li><strong>Text Input (Single-line):</strong></li>
+        <ul>
+          <li><strong>“Username”</strong>: Must be unique, maximum 255 characters.</li>
+          <li>A text box with a hint (placeholder) like "Enter your username."</li>
+        </ul>
+        <li><strong>Password Input (Single-line with hidden text):</strong></li>
+        <ul>
+          <li><strong>“Password”</strong>: Minimum password strength check, maximum 255 characters.</li>
+          <li>A text box that hides the text input, with a “Show/Hide” toggle.</li>
+        </ul>
+        <li><strong>Email Input:</strong></li>
+        <ul>
+          <li><strong>“Email Address”</strong>: Must be a valid email format and unique, maximum 255 characters.</li>
+          <li>A text box with a placeholder like "Enter your email."</li>
+        </ul>
+        <li>(Optional): <strong>Text Input (Single-line):</strong></li>
+        <ul>
+          <li><strong>“Full Name”</strong> (optional): A regular text box, with a placeholder like "Enter your full name."</li>
+        </ul>
+        <li><strong>Dropdown / Select Menu:</strong></li>
+        <ul>
+          <li><strong>“Role”</strong>: Required field.</li>
+          <li>A dropdown menu listing the available roles fetched from the system (e.g., Admin, User, etc.).</li>
+        </ul>
+        <li><strong>File Upload or URL Input (for image URL):</strong></li>
+        <ul>
+          <li><strong>“Profile Picture”</strong>: An upload button or URL field that allows users to upload or enter a URL for their profile picture, with a preview box for the image.</li>
+        </ul>
+        <li>(Read-only): <strong>Text or Date Display (Read-only):</strong></li>
+        <ul>
+          <li><strong>“Account Created At”</strong>: Automatically populated field, no input needed. Display this as a timestamp or date.</li>
+          <li><strong>“Last Updated At”</strong>: Automatically updated field when the user’s information is edited. Display this as a timestamp or date.</li>
+        </ul>
+        <li><strong>Button:</strong></li>
+        <ul>
+          <li><strong>“Create Account” / “Save Changes”</strong> (depending on context): A primary action button that submits the form. Ensure it's disabled until all required fields are validated.</li>
+        </ul>
+        <li>(Optional): <strong>Button:</strong></li>
+        <ul>
+          <li><strong>“Cancel”</strong>: A secondary action button that cancels the form submission and returns the user to the previous page.</li>
+        </ul>
+      </ul>
+    </li>
+    <li>
+      <strong>Additional Considerations:</strong>
+      <ul>
+        <li>Use inline validation messages under each input field for errors like "Username is already taken" or "Invalid email format."</li>
+        <li>Ensure the form is responsive, working well on both desktop and mobile.</li>
+      </ul>
+    </li>
+  </ul>
+    </div>
+    <div class="content design-content" id="design-content">
+      <h2>Design</h2>
+      <img src="design-image.png" alt="Design Image">
+    </div>
+    <div class="content implement-content" id="implement-content">
+      <h2>Implement Section</h2>
+      <div class="container">
         <h1>Create Account</h1>
         <form>
             <label for="full-name">Full Name</label>
@@ -97,6 +211,24 @@
 
             <button type="submit">Create Account</button>
         </form>
+      </div>
     </div>
+  </div>
+  <script>
+    function showContent(section) {
+      document.querySelectorAll('.content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.style.backgroundColor = '#333';
+        tab.style.color = 'white';
+      });
+
+      document.querySelector(`.${section}-content`).classList.add('active');
+      const activeTab = document.querySelector(`.tab.${section}`);
+      activeTab.style.backgroundColor = '#28a745';
+      activeTab.style.color = 'white';
+    }
+  </script>
 </body>
 </html>
