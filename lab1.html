@@ -1,107 +1,102 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Nhân Viên Văn Phòng </title>
+    <title>Register an Account</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 10px;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        table {
-            width: 50%;
-            border-collapse: collapse;
-            margin-top: 20px;
+
+        .container {
+            background: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        table, th, td {
-            border: 1px solid #ccc;
+
+        .container h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        th, td {
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select, button {
+            font-size: 16px;
             padding: 10px;
-            text-align: left;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        input[type="file"] {
+            padding: 3px;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Create Account</h1>
+        <form>
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="Enter your full name">
 
-<h1>Quản lý Nhân viên Văn Phòng</h1>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
 
-<h2>Thêm Nhân Viên</h2>
-<form id="addForm">
-    <input type="text" id="name" placeholder="Tên Nhân viên" required>
-    <input type="text" id="subject" placeholder="chức vụ" required>
-    <input type="text" id="subject" placeholder="nhóm" required>
-    <button type="submit">Thêm</button>
-</form>
+            <label for="phone-number">Phone Number</label>
+            <input type="tel" id="phone-number" placeholder="Enter your phone number">
 
-<h2>Tìm kiếm Nhân viên</h2>
-<input type="text" id="searchInput" placeholder="Tìm theo tên" onkeyup="search()">
+            <label for="profile-picture">Profile Picture</label>
+            <input type="file" id="profile-picture">
 
-<table>
-    <thead>
-        <tr>
-            <th>Tên</th>
-            <th>phòng làm việc</th>
-            <th>chức vụ</th>
-        </tr>
-    </thead>
-    <tbody id="teacherTable">
-        <!-- Danh sách nhân viên sẽ được thêm vào đây -->
-    </tbody>
-</table>
+            <label for="role">Role</label>
+            <select id="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
 
-<script>
-    const teacherTable = document.getElementById('teacherTable');
-    const addForm = document.getElementById('addForm');
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
 
-    // Mảng lưu trữ nhân viên
-    let teachers = [];
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Re-enter your password">
 
-    // Thêm nhân viên
-    addForm.onsubmit = function (e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const subject = document.getElementById('subject').value;
-
-        const staff = { name, subject };
-        teachers.push(staff);
-        renderTable();
-        addForm.reset();
-    };
-
-    // Hiển thị danh sách nhân viên
-    function renderTable() {
-        teacherTable.innerHTML = '';
-        teachers.forEach((staff, index) => {
-            const row = `<tr>
-                <td>${staff.name}</td>
-                <td>${staff.subject}</td>
-                <td>
-                    <button onclick="editTeacher(${index})">Sửa</button>
-                    <button onclick="deleteTeacher(${index})">Xóa</button>
-                </td>
-            </tr>`;
-            staffTable.innerHTML += row;
-        });
-    }
-
-    // Sửa nhân viên
-    function editStaff(index) {
-        const name = prompt("Nhập tên mới:", teachers[index].name);
-        const subject = prompt("Nhập phòng mới:", staffs[index].subject);
-        if (name && subject) {
-            staffs[index] = { name, subject };
-            renderTable();
-        }
-    }
-
-    // Xóa nhân viên
-    function deleteTeacher(index) {
-        teachers.splice(index, 1);
-        renderTable();
-    }
-
-    // Tìm kiếm nhân viên
-    function searchStaff() {
-const input = document.getElementById('searchInput').value.toLowerCase();
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>
