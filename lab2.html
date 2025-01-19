@@ -1,107 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
 
-        .container {
-            width: 400px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
+    .tabs {
+      display: flex;
+      width: 60%;
+      border: 1px solid #ccc;
+    }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        input[type="text"],
-        input[type="password"],
-        input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+    .tab.requirement {
+      background-color: #28a745;
+      color: white;
+    }
 
-        button {
-            width: 100%;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    .tab.design,
+    .tab.implement {
+      background-color: #333;
+      color: white;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    .tab:hover {
+      opacity: 0.8;
+    }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
-            margin-top: 10px;
-            display: block;
-        }
+    .content {
+      display: none;
+      width: 80%;
+      margin-top: 20px;
+      text-align: center;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .content.active {
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 2px solid #ccc; /* Đóng khung login */
+      border-radius: 10px;   /* Bo tròn góc */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+      padding: 20px;
+    }
+
+    #form-container h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #login-form input {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #login-form button {
+      padding: 10px;
+      font-size: 16px;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #login-form button:hover {
+      background-color: #218838;
+    }
+
+    #login-form a {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #007bff;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    #login-form a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container" id="form-container">
+  <div>
+    <div class="tabs">
+      <div class="tab requirement" onclick="showContent('requirement')">REQUIREMENT</div>
+      <div class="tab design" onclick="showContent('design')">DESIGN</div>
+      <div class="tab implement" onclick="showContent('implement')">IMPLEMENT</div>
+    </div>
+    <div class="content requirement-content active" id="requirement-content">
+      <h2>Requirement</h2>
+      <p>Requirements content goes here...</p>
+    </div>
+    <div class="content design-content" id="design-content">
+      <h2>Design</h2>
+      <img src="design-image.png" alt="Design Image">
+    </div>
+    <div class="content implement-content" id="implement-content">
+      <h2>Implement Section</h2>
+      <div class="container" id="form-container">
         <h1>Student Login</h1>
         <form id="login-form">
-            <input type="text" id="username" placeholder="Username/Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="button" onclick="handleLogin()">Login</button>
-            <a href="#">Forgot Password?</a>
+          <input type="text" id="username" placeholder="Username/Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="button" onclick="handleLogin()">Login</button>
+          <a href="#">Forgot Password?</a>
         </form>
+      </div>
     </div>
+  </div>
+  <script>
+    function showContent(section) {
+      document.querySelectorAll('.content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.style.backgroundColor = '#333';
+        tab.style.color = 'white';
+      });
 
-    <script>
-        function handleLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+      document.querySelector(`.${section}-content`).classList.add('active');
+      const activeTab = document.querySelector(`.tab.${section}`);
+      activeTab.style.backgroundColor = '#28a745';
+      activeTab.style.color = 'white';
+    }
 
-            // Basic validation
-            if (username.trim() !== "" && password.trim() !== "") {
-                // Replace the login form with a new form
-                const formContainer = document.getElementById('form-container');
-                formContainer.innerHTML = `
-                    <h1>Welcome, ${username}!</h1>
-                    <form id="new-form">
-                        <input type="email" id="email" placeholder="Enter your email" required>
-                        <input type="text" id="additional-info" placeholder="Additional Info" required>
-                        <button type="submit">Submit</button>
-                    </form>
-                `;
-            } else {
-                alert("Please enter valid credentials!");
-            }
-        }
-    </script>
+    function handleLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      alert(`Logging in with Username: ${username}`);
+    }
+  </script>
 </body>
-
 </html>
